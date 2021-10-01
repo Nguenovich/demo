@@ -1,3 +1,4 @@
+import 'package:demo/modules/my_list.dart';
 import 'package:demo/modules/posts.dart';
 import 'package:demo/modules/service.dart';
 import 'package:demo/pages/post_detail.dart';
@@ -31,35 +32,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_loading ? 'Loading...' : 'Posts'),
-      ),
-      body: Container(
-        color: Colors.white,
-        child: ListView.builder(
-            itemCount: _posts.length,
-            itemBuilder: (context, index) {
-              Post post = _posts[index];
-              return ListTile(
-                title: Text(post.name),
-                subtitle: Text(post.email),
-                trailing: const Icon(Icons.arrow_forward),
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PostDetail(post)));
-                },
-              );
-            }),
-      ),
-    );
+    return MyList(loading: _loading, posts: _posts);
   }
 }
-
-
-
-//                   onTap: () {
-// Navigator.push(context, route)
-//                   },

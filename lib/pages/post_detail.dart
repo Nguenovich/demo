@@ -13,7 +13,7 @@ class PostDetail extends StatelessWidget {
           title: Text('Post ${post.name}'),
         ),
         body: Center(
-          child: Text('Text ${post.body}'),
+          child: Text(post.body),
         ));
   }
 }
